@@ -102,7 +102,11 @@ class qqFileUploader {
             $this->file = false; 
         }
     }
-    
+
+    public function __call($closure, $args){
+        return call_user_func_array($this->$closure, $args);
+    }
+        
 	public function getName(){
 		if ($this->file)
 			return $this->file->getName();
